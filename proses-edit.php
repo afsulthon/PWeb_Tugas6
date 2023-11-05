@@ -3,7 +3,6 @@
 include("config.php");
 
 if (isset($_POST['simpan'])) {
-
   $id = $_POST['id'];
   $nama = $_POST['nama'];
   $alamat = $_POST['alamat'];
@@ -11,14 +10,18 @@ if (isset($_POST['simpan'])) {
   $agama = $_POST['agama'];
   $sekolah = $_POST['sekolah-asal'];
 
-  $sql = "UPDATE calon_siswa SET nama='$nama', alamat='$alamat', jenis_kelamin='$jenis_kelamin', agama='$agama', sekolah_asal='$sekolah' WHERE id=$id";
-  $query = mysqli_query($db, $sql);
+  $stmt = $db->prepare("UPDATE calon_siswa SET nama=?, alamat=?, jenis_kelamin=?, agama=?, sekolah_asal=? WHERE id=?");
+  $stmt->bind_param("sssssi", $nama, $alamat, $jenis_kelamin, $agama, $sekolah, $id);
 
-  if ($query) {
+  $stmt->execute();
+
+  if ($stmt->affected_rows > 0) {
     header('Location: list-siswa.php');
   } else {
     die("Gagal menyimpan perubahan");
   }
+
+  $stmt->close();
 } else {
   die("Akses dilarang!");
 }

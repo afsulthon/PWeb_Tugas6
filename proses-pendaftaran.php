@@ -9,14 +9,18 @@ if (isset($_POST['daftar'])) {
   $agama = $_POST['agama'];
   $sekolah = $_POST['sekolah-asal'];
 
-  $sql = "INSERT INTO calon_siswa (nama, alamat, jenis_kelamin, agama, sekolah_asal) VALUE ('$nama', '$alamat', '$jenis_kelamin', '$agama', '$sekolah')";
-  $query = mysqli_query($db, $sql);
+  $stmt = $db->prepare("INSERT INTO calon_siswa (nama, alamat, jenis_kelamin, agama, sekolah_asal) VALUES (?, ?, ?, ?, ?)");
+  $stmt->bind_param("sssss", $nama, $alamat, $jenis_kelamin, $agama, $sekolah);
 
-  if ($query) {
+  $stmt->execute();
+
+  if ($stmt->affected_rows > 0) {
     header('Location: index.php?status=sukses');
   } else {
     header('Location: index.php?status=gagal');
   }
+
+  $stmt->close();
 } else {
   die("Akses dilarang!");
 }
