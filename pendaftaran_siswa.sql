@@ -18,7 +18,7 @@ INSERT INTO `calon_siswa` (`id`, `nama`, `alamat`, `jenis_kelamin`, `agama`, `se
 (1, 'Akmal Sulthon', 'Asrama Mahasiswa ITS Blok E', 'Laki-laki', 'Islam', 'SMAN 1 Ponorogo'),
 (2, 'Duevano Fairuz', 'Perumahan GSI, Kedurus', 'Laki-laki', 'Islam', 'SMAN 6 Surabaya'),
 (3, 'Ken Anargya', 'Perumdos ITS Blok U', 'Laki-laki', 'Islam', 'SMAN 7 Depok'),
-(4, "Achmad Khosyi'", 'Keputih Perintis', 'Laki-laki', 'Islam', 'SMAN 1 Gresik'),
+(4, "Achmad Khosyi'", 'Kejawan Putih Tambak', 'Laki-laki', 'Islam', 'SMAN 1 Gresik'),
 (5, 'Nadya Zuhria', 'Gang Mawar, Gebang Putih', 'Perempuan', 'Islam', 'MAN 2 Ponorogo'),
 (6, 'Abdullah Yasykur', 'Pondok Pesantren Darussalam, Keputih', 'Laki-laki', 'Islam', 'Pondok Pesantren Tebuireng Jombang');
 
